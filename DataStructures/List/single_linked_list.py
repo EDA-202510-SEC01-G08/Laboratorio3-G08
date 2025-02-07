@@ -23,7 +23,15 @@ def is_present(my_list, element, cmp_function):
         else:
             temp = temp["next"]
             count += 1
-            
+
     if not is_in_array:
         count = -1
     return count
+
+def add_last(my_list, element):
+    my_list["elements"].append(element)
+    my_list["size"] += 1
+    return my_list
+
+def first_element(my_list):
+    return my_list["first"]

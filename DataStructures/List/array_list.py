@@ -19,3 +19,8 @@ def is_present(my_list, element, cmp_function):
         if keyexist:
             return keypos
     return -1
+
+def add_last(my_list, element):
+    my_list["elements"].append(element)
+    my_list["size"] += 1
+    return my_list
