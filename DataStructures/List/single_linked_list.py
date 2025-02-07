@@ -38,6 +38,7 @@ def add_last(my_list, element):
 
 def first_element(my_list):
     return my_list["first"]
+
 def add_first(my_list, element):
     new_node = {"info": element,
                 "next": None,
