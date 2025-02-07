@@ -51,9 +51,9 @@ def new_logic():
     }
 
     catalog['books'] = lt.new_list()
-    # TODO Implemente la inicialización de la lista de autores
-    # TODO Implemente la inicialización de la lista de tags
-    # TODO Implemente la inicialización de la lista de asociación de libros y tags
+    catalog['authors'] = lt.new_list()
+    catalog['tags'] = lt.new_list()
+    catalog['book_tags'] = lt.new_list
     return catalog
 
 
