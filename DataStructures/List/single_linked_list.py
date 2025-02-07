@@ -28,6 +28,9 @@ def is_present(my_list, element, cmp_function):
         count = -1
     return count
 
+def size(my_list):
+    return my_list["size"]
+    
 def add_last(my_list, element):
     my_list["elements"].append(element)
     my_list["size"] += 1

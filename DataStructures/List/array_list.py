@@ -20,6 +20,8 @@ def is_present(my_list, element, cmp_function):
             return keypos
     return -1
 
+def size(my_list):
+    return my_list["size"]
 def add_first(my_list, element):
     my_list["elements"].insert(0, element)
     my_list["size"] += 1
