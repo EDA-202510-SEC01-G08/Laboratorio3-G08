@@ -19,3 +19,6 @@ def is_present(my_list, element, cmp_function):
         if keyexist:
             return keypos
     return -1
+
+def size(my_list):
+    return my_list["size"]
