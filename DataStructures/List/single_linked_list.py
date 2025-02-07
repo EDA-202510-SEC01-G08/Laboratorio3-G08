@@ -27,3 +27,16 @@ def is_present(my_list, element, cmp_function):
     if not is_in_array:
         count = -1
     return count
+
+def add_first(my_list, element):
+    new_node = {"info": element,
+                "next": None,
+                }
+    if my_list["size"] == 0:
+        my_list["first"] = new_node
+        my_list["last"] = new_node
+    else:
+        new_node["next"] = my_list["first"]
+        my_list["first"] = new_node
+    my_list["size"] += 1
+    return my_list
