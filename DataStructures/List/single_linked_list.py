@@ -60,3 +60,13 @@ def size(my_list):
 def first_element(my_list):
     return my_list["first"]
 
+def remove_first(my_list):
+    if my_list["size"] == 0:
+        raise Exception('IndexError: list index out of range')
+    else:
+        first = my_list["first"]
+        now_first = first["next"]
+        my_list["first"] = now_first
+        my_list["size"] -= 1
+        return first["info"]
+
