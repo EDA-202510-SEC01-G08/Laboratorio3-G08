@@ -62,7 +62,7 @@ def first_element(my_list):
 
 def remove_first(my_list):
     if my_list["size"] == 0:
-        raise Exception('IndexError: list index out of range')
+        return None
     else:
         first = my_list["first"]
         now_first = first["next"]
@@ -82,7 +82,7 @@ def last_element(my_list):
 
 def change_info(my_list, pos, new_info):
     if pos < 0 or pos > my_list["size"] -1:
-        raise Exception('IndexError: list index out of range')
+        raise None
     else: 
         count = 0
         actual = my_list["first"]
