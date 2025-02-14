@@ -27,8 +27,8 @@
 import csv
 import os
 
-# TODO Importar la librería para el manejo de listas
-from DataStructures.List import aray_list as lt
+from DataStructures.List import single_linked_list as sl
+from DataStructures.List import array_list as lt
 data_dir = os.path.dirname(os.path.realpath('__file__')) + '/Data/'
 
 """
@@ -66,11 +66,11 @@ def load_data(catalog):
     estructura de datos
     """
     books, authors = load_books(catalog)
-    # TODO Complete la carga de los tags
-    # TODO Complete la carga de los book_tags
-    # TODO Añada
+    load_books(catalog)
+    load_tags(catalog)
+    load_books_tags(catalog)
     return books, authors
-    # pass
+
 
 
 def load_books(catalog):
@@ -94,8 +94,12 @@ def load_tags(catalog):
 
     :return: El número de tags cargados
     """
-    # TODO Implementar la carga de los tags
-    pass
+    tagsfile = data_dir + 'GoodReads/tags.csv'
+    input_file = csv.DictReader(open(tagsfile, encoding='utf-8'))
+    for tag in input_file:
+        add_tag(catalog, tag)
+    return tag_size(catalog)  
+    
 
 
 def load_books_tags(catalog):
@@ -106,9 +110,11 @@ def load_books_tags(catalog):
 
     :return: El número de book_tags cargados
     """
-    # TODO Implementar la carga de los book_tags
-    pass
-
+    book_tagsfile = data_dir + 'GoodReads/book_tags.csv'
+    input_file = csv.DictReader(open(book_tagsfile, encoding='utf-8'))
+    for book_tag in input_file:
+        add_book_tag(catalog, book_tag)
+    return book_tag_size(catalog)
 
 # Funciones de consulta sobre el catálogo
 
@@ -132,7 +138,7 @@ def get_best_book(catalog):
 
     :return: El libro con el mejor rating
     """
-    # TODO Implementar la función del mejor libro por rating
+    # TODO Implementar la función de mejor libro
     return None
 
 
@@ -255,6 +261,7 @@ def tag_size(catalog):
     """
     # TODO Implementar la función de tamaño de tags
     pass
+
 
 
 def book_tag_size(catalog):
