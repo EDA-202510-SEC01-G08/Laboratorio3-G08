@@ -66,12 +66,22 @@ def sub_list(my_list, start, end):
         add_last(sublist, my_list["elements"][i])
     return sublist
 
-def remove_first(my_list):
-    if my_list["size"] > 0:
-        return my_list["elements"].pop(0)
-    return None
-
 def remove_last(my_list):
-    if my_list["size"] > 0:
-        return my_list["elements"].pop()
-    return None
+    if my_list["size"] == 0:
+        raise Exception('IndexError: list index out of range')
+    else: 
+        elementos = my_list["elements"]
+        size = my_list["size"]
+        elemento = elementos[size-1]
+        del elementos[size-1]
+        my_list["size"] -= 1
+        return elemento
+    
+def remove_first(my_list):
+    if my_list["size"] == 0:
+        raise Exception('IndexError: list index out of range')
+    else: 
+        elementos = my_list["elements"]
+        elemento = elementos[0]
+        del elementos[0]
+        return elemento
