@@ -131,28 +131,26 @@ def get_books_by_author(catalog, author_name):
 
 
 def get_best_book(catalog):
-    """
-    Busca el libro con el mejor rating. Retorna el último libro que se encontró
-
-    :param catalog: El catalogo de estructuras del laboratorio
-
-    :return: El libro con el mejor rating
-    """
-    # TODO Implementar la función de mejor libro
-    return None
+    
+    mejor = lt.first_element(catalog['books'])
+    current = lt.first_node(catalog['books'])
+    while current is not None:
+        book = lt.get_element(catalog['books'], current)
+        if compare_ratings(book, mejor):
+            mejor = book
+        current = lt.next_node(catalog['books'], current)
+    return mejor
 
 
 def count_books_by_tag(catalog, tag):
-    """
-    Retorna la número de libros que fueron etiquetados con el tag dado
-
-    :param catalog: El catalogo de estructuras del laboratorio
-    :param tag: El tag que se desea buscar
-
-    :return: El número de libros que fueron etiquetados con el tag dado
-    """
-    # TODO Implementar la función de conteo de libros por tag
-    pass
+    
+    tag_id = lt.first_node(catalog['tags'])
+    count = 0
+    while tag_id is not None:
+        tag = lt.get_element(catalog['tags'], tag_id)
+        tag_id = lt.next_node(catalog['tags'], tag_id)
+        count += 1
+    return count
 
 
 # Funciones para agregar informacion al catalogo
@@ -240,40 +238,19 @@ def book_size(catalog):
 
 
 def author_size(catalog):
-    """
-    Retorna el número de autores en el catálogo
-
-    :param catalog: El catalogo de estructuras del laboratorio
-
-    :return: El número de autores en el catálogo
-    """
-    # TODO Implementar la función de tamaño de autores
-    pass
+    
+    return lt.size(catalog['authors'])
 
 
 def tag_size(catalog):
-    """
-    Retorna el número de tags en el catálogo
-
-    :param catalog: El catalogo de estructuras del laboratorio
-
-    :return: El número de tags en el catálogo
-    """
-    # TODO Implementar la función de tamaño de tags
-    pass
+    
+    return lt.size(catalog['tags'])
 
 
 
 def book_tag_size(catalog):
-    """
-    Retorna el número de book_tags en el catálogo
-
-    :param catalog: El catalogo de estructuras del laboratorio
-
-    :return: El número de book_tags en el catálogo
-    """
-    # TODO Implementar la función de tamaño de book_tags
-    pass
+    
+    return lt.size(catalog['book_tags'])
 
 
 # Funciones utilizadas para comparar elementos dentro de una lista
